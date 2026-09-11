@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SokoFlow — Discover. Connect. Trade. Deliver.</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<div id="splash"><div class="brand">SOKO<span>FLOW</span></div><p>Discover. Connect. Trade. Deliver.</p></div>
+
+<header>
+  <div class="brand small">SOKO<span>FLOW</span></div>
+  <input id="search" placeholder="Search products, stores and categories" />
+  <button class="icon" onclick="showSection('cart')">Cart <span id="cartCount">0</span></button>
+</header>
+
+<main>
+<section id="home" class="page active">
+  <div class="hero">
+    <div>
+      <div class="eyebrow">MULTI-VENDOR MARKETPLACE</div>
+      <h1>Everything flows better with SokoFlow.</h1>
+      <p>Discover products, connect with sellers and coordinate deliveries from one marketplace.</p>
+      <button onclick="showSection('explore')">Explore Marketplace</button>
+    </div>
+    <div class="hero-card">
+      <strong>Payments</strong>
+      <h2>Coming Soon</h2>
+      <p>Online payment integration is being prepared for a future release.</p>
+    </div>
+  </div>
+
+  <div class="section-head"><h2>Popular Products</h2><button class="link" onclick="showSection('explore')">View all</button></div>
+  <div id="featured" class="grid"></div>
+
+  <div class="section-head"><h2>How SokoFlow Works</h2></div>
+  <div class="steps">
+    <div><b>01</b><h3>Discover</h3><p>Find products and stores.</p></div>
+    <div><b>02</b><h3>Connect</h3><p>Message sellers directly.</p></div>
+    <div><b>03</b><h3>Trade</h3><p>Place and manage orders.</p></div>
+    <div><b>04</b><h3>Deliver</h3><p>Track every delivery stage.</p></div>
+  </div>
+</section>
+
+<section id="explore" class="page">
+  <div class="section-head"><h1>Explore Marketplace</h1></div>
+  <div class="filters">
+    <select><option>All Categories</option><option>Electronics</option><option>Fashion</option><option>Accessories</option></select>
+    <select><option>All Sellers</option><option>Verified Sellers</option></select>
+    <button onclick="loadProducts()">Refresh</button>
+  </div>
+  <div id="products" class="grid"></div>
+</section>
+
+<section id="orders" class="page">
+  <h1>Orders</h1>
+  <div class="order-card">
+    <div><span class="status">Demo Order</span><h2>Wireless Headphones</h2><p>Expected delivery: Estimated after seller confirmation</p></div>
+    <div class="timeline"><span class="done">Order Created</span><span>Seller Confirmed</span><span>Ready for Pickup</span><span>In Transit</span><span>Delivered</span></div>
+  </div>
+</section>
+
+<section id="messages" class="page">
+  <h1>Messages</h1>
+  <div class="empty">Start a conversation with a seller from a product page.</div>
+</section>
+
+<section id="profile" class="page">
+  <h1>Profile & Settings</h1>
+  <div class="settings">
+    <button>Account</button><button>Addresses</button><button>Notifications</button><button>Appearance</button><button>Privacy</button><button>Support</button>
+  </div>
+</section>
+
+<section id="cart" class="page">
+  <div class="section-head"><h1>Your Cart</h1><button class="link" onclick="showSection('explore')">Continue shopping</button></div>
+  <div id="cartItems"></div>
+  <div class="checkout">
+    <h2 id="total">Total: KSh 0</h2>
+    <h3>Payment Integration</h3>
+    <div class="coming">COMING SOON<br><small>Online payments are currently being prepared.</small></div>
+    <button onclick="placeOrder()">Place Order</button>
+  </div>
+</section>
+</main>
+
+<nav>
+<button onclick="showSection('home')">Home</button>
+<button onclick="showSection('explore')">Explore</button>
+<button onclick="showSection('orders')">Orders</button>
+<button onclick="showSection('messages')">Messages</button>
+<button onclick="showSection('profile')">Profile</button>
+</nav>
+
+<div id="toast"></div>
+<script src="/app.js"></script>
+</body>
+</html>
